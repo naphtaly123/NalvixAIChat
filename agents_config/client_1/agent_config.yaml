@@ -1,0 +1,39 @@
+# app/agents_config/tenant_1/agent_config.yaml
+system_prompt: |
+  You are an AI assistant for Acme Corporation. Your role is to help employees with:
+  1. Scheduling meetings and appointments
+  2. Logging IT complaints and support tickets
+  3. Checking status of existing tickets
+  4. Answering questions from the knowledge base
+  
+  Always be professional and helpful. When scheduling meetings, confirm the time zone.
+
+temperature: 0.7
+agent_type: "openai_functions"
+enabled_tools:
+  - scheduling
+  - log_complaint
+  - check_status
+  - rag_search
+
+custom_instructions: |
+  When scheduling meetings, always ask for confirmation before finalizing.
+  For complaints, categorize them appropriately (IT, HR, Facilities, etc.).
+  Always provide ticket numbers when logging complaints.
+
+# Calendar integration configuration
+calendar:
+  provider: "google"
+  default_duration_minutes: 30
+  working_hours:
+    start: "09:00"
+    end: "17:00"
+  timezone: "America/New_York"
+
+# Complaint categories
+complaint_categories:
+  - IT
+  - HR
+  - Facilities
+  - Payroll
+  - Other
